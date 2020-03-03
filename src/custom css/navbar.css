@@ -1,0 +1,30 @@
+.search{
+	
+	width: 48%;
+	margin-left: 20%;
+	margin-right: 2%;
+
+	
+}
+
+.center{
+	 align-items: center;
+	justify-content: center;	
+}
+.search-input{
+	
+	width: 50%;
+
+}
+
+.dontshrink{
+	flex-shrink: 0;
+}
+
+.signin{
+	 align-items: right;
+	justify-content: right;
+	padding-left: 18%;
+	
+	
+}
