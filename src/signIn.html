@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
+
+<link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="./custom css/signIn_register.css" rel="stylesheet">
+
+
   <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
   <h2 class="signInText" align="center" >Sign In</h2>
-  </body>
+ 
   
   <form class="login-form" action="/action_page.php" method="post">
 
@@ -17,9 +22,9 @@
     <input type="password" placeholder="Password" name="psw" required>
         
     <button type="submit">Login</button>
-    <button type="button" style="background-color: #3366ff">Create Account</button>
+    <button type="button" onclick="window.location.href='register.html';" style="background-color: #3366ff" >Create Account</button>
   </div>
   </form>
-  
+   </body>
 </html>
 
