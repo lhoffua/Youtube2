@@ -16,22 +16,39 @@
   <fieldset style="border: 1px solid #000000">
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Username" name="uname" required>
+    <input type="text" id="username" placeholder="Username" name="uname" required>
     
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Email" name="email" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Password" name="psw" required>
+    <input type="password" id="password" placeholder="Password" name="psw" required>
     
     <label for="confPsw"><b>Confirm Password</b></label>
-    <input type="password" placeholder="Confirm Password" name="confPsw" required>
+    <input type="password" id="cpassword" placeholder="Confirm Password" name="confPsw" required>
       
-    <button class="createAccountBtn" type="submit" style="background-color: #3366ff">Create Account</button>
+    <button class="createAccountBtn" type="submit" id="submit" style="background-color: #3366ff">Create Account</button>
      <button type="button">Login</button>
   </div>
   </fieldset>
   </form>
+
+<script src="/socket.io/socket.io.js"> </script>
+
+<script>
+
+var socket = io.connect('http://localhost:4000');
+
+var username = document.getElementById('username');
+var password = document.getElementById('password');
+var submit = document.getElementById('submit');
+
+submit.addEventListener('click', function(e){
+  console.log('Sumbit button was clicked!');
+  
+})
+
+</script>
    </body>
 </html>
 
