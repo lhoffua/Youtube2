@@ -5,6 +5,7 @@
 <link href="./custom css/signIn_register.css" rel="stylesheet">
 
   <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="./custom css/signIn_register.css.css" rel="stylesheet">
   </head>
@@ -27,13 +28,13 @@
     <label for="confPsw"><b>Confirm Password</b></label>
     <input type="password" id="cpassword" placeholder="Confirm Password" name="confPsw" required>
       
-    <button class="createAccountBtn" type="submit" id="submit" style="background-color: #3366ff">Create Account</button>
+    <button class="createAccountBtn" id="submit" style="background-color: #3366ff">Create Account</button>
      <button type="button">Login</button>
   </div>
   </fieldset>
   </form>
 
-<script src="/socket.io/socket.io.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"> </script>
 
 <script>
 
@@ -45,7 +46,13 @@ var submit = document.getElementById('submit');
 
 submit.addEventListener('click', function(e){
   console.log('Sumbit button was clicked!');
-  
+
+socket.emit('submit', {
+  name: username.value,
+  password: password.value
+
+});
+
 })
 
 </script>
