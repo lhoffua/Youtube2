@@ -1,14 +1,47 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
+const bodyParser = require('body-parser');
 
 const app = express();
 
+require('./config/passport')(passport);
+
 const PORT = process.env.PORT || 5000;
+
+
+const db = require('./config/keys').MongoURI;
+
+mongoose.connect(db, { useNewUrlParser: true})
+    .then(() => console.log('MongoDB Connected'))
+    .catch(err => console.log(err));
+
+
+app.use(bodyParser.json());
+
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+
+
+// Passport middleware
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+ 
+app.use(flash());
 
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 
 app.listen(PORT, console.log('server started on port ${PORT}'));
-
 /*const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://gdadulla:34rtsdcv@cluster0-mno4t.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true});

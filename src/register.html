@@ -13,49 +13,27 @@
   <h2 class="signInText" align="center" >Create Account</h2>
  
   
-  <form class="login-form" action="/action_page.php" method="post">
+  <form class="login-form" action="/users/register" method="POST">
   <fieldset style="border: 1px solid #000000">
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" id="username" placeholder="Username" name="uname" required>
+    <input type="text" id="name" placeholder="Username" name="name" required>
     
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Email" name="email" required>
+    <input type="text" placeholder="Email" id="email" name="email" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" id="password" placeholder="Password" name="psw" required>
+    <input type="password" id="password" placeholder="Password" name="password" required>
     
     <label for="confPsw"><b>Confirm Password</b></label>
-    <input type="password" id="cpassword" placeholder="Confirm Password" name="confPsw" required>
+    <input type="password" id="password2" placeholder="Confirm Password" name="password2" required>
       
     <button class="createAccountBtn" id="submit" style="background-color: #3366ff">Create Account</button>
-     <button type="button">Login</button>
+
+     <a href="/users/signIn"> You already have an account? </a>
   </div>
   </fieldset>
   </form>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"> </script>
-
-<script>
-
-var socket = io.connect('http://localhost:4000');
-
-var username = document.getElementById('username');
-var password = document.getElementById('password');
-var submit = document.getElementById('submit');
-
-submit.addEventListener('click', function(e){
-  console.log('Sumbit button was clicked!');
-
-socket.emit('submit', {
-  name: username.value,
-  password: password.value
-
-});
-
-})
-
-</script>
    </body>
 </html>
 

@@ -12,7 +12,7 @@
   <h2 class="signInText" align="center" >Sign In</h2>
  
   
-  <form class="login-form" action="/action_page.php" method="post">
+  <form class="login-form" action="/users/login" method="POST">
   <fieldset style="border: 1px solid #000000">
   <div class="container">
     <label for="uname"><b>Username</b></label>
@@ -22,7 +22,7 @@
     <input type="password" placeholder="Password" name="psw" required>
         
     <button type="submit">Login</button>
-    <button type="button" onclick="window.location.href='register.html';" style="background-color: #3366ff" >Create Account</button>
+    <button type="button" onclick="window.location.href='/users/register';" style="background-color: #3366ff" >Create Account</button>
   </div>
   </fieldset>
   </form>
