@@ -7,7 +7,7 @@ router.use(express.static("../"));
 router.get('/', (req, res) => res.sendFile('/index.html' , { root : ".."}));
 
 router.get('/test', ensureAuthenticated, (req, res) =>
-  resres.sendFile('/index.html' , { 
+  res.render('test' , { 
     root : "..", 
     user: req.user
   })

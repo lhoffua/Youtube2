@@ -32,7 +32,7 @@ router.post('/register', (req, res) => {
                 .save()
                 .then(user => {
                   console.log(
-                    'success_msg',
+                    
                     'You are now registered and can log in'
                   );
                   res.redirect('/users/signIn');
@@ -44,14 +44,14 @@ router.post('/register', (req, res) => {
     });
 });
     
-router.post('/login', bodyParser.json(), (req, res, next) => {
+router.post('/login', (req, res, next) => {
+  console.log("body parsing", req.body);
     console.log("login info sent to server");
-    passport.authenticate('local', function(err, user, info){
-      console.log(err);
-      console.log(user);
-      console.log(info);      /*successRedirect: '/test',
+    passport.authenticate('local' ,
+    {
+      successRedirect: '/test', 
       failureRedirect: console.log("fail"),
-      failureFlash: true*/
+      failureFlash: true
     })(req, res, next);
   });
 
