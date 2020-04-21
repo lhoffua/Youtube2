@@ -46,6 +46,7 @@ app.use(flash());
 
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
+app.use('/upload', require('./routes/upload'));
 
 app.listen(PORT, console.log('server started on port ${PORT}'));
 
