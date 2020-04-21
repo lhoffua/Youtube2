@@ -6,8 +6,9 @@
 
 <body>
     <h1 class="mt-4">Dashboard</h1>
-    <form action="/upload" method="POST">
-        <button id="submit" style="background-color: #3366ff">Upload</button>
+    <form method="post" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="videoFile"><br>
+        <input type="submit" value="Submit">
     </form>
 </body>
 	
