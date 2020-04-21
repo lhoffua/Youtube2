@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="./custom css/signIn_register.css" rel="stylesheet">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="./custom css/signIn_register.css.css" rel="stylesheet">
+  </head>
+  <body>
+  <h2 class="signInText" align="center" >Create Account</h2>
+ 
+  
+  <form class="login-form" action="/users/register" method="POST">
+  <fieldset style="border: 1px solid #000000">
+  <div class="container">
+    <label for="name"><b>Username</b></label>
+    <input type="text" id="name" placeholder="Username" name="name" required>
+    
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Email" id="email" name="email" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" id="password" placeholder="Password" name="password" required>
+    
+    <label for="password2"><b>Confirm Password</b></label>
+    <input type="password" id="password2" placeholder="Confirm Password" name="password2" required>
+      
+    <button class="createAccountBtn" id="submit" style="background-color: #3366ff">Create Account</button>
+
+     <a href="/users/signIn"> You already have an account? </a>
+  </div>
+  </fieldset>
+  </form>
+   </body>
+</html>
+
