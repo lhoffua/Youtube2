@@ -7,9 +7,10 @@ const User = require('../models/Users');
 const { forwardAuthenticated } = require('../config/auth');
 
 router.use(express.static("../"));
-router.get('/register', forwardAuthenticated, (req, res) => res.sendFile('/register.html' , { root : ".."}));
+router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
 
-router.get('/signIn', forwardAuthenticated, (req, res) => res.sendFile('/signIn.html'  , { root : ".."}));
+router.get('/signIn', forwardAuthenticated, (req, res) => res.render('signIn'));
+
 
 router.post('/register', (req, res) => {
     const { name, email, password, password2 } = req.body;
