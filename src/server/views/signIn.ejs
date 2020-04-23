@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html>
 
-<link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="./custom css/signIn_register.css" rel="stylesheet">
+
 
 
   <head>
@@ -11,7 +8,12 @@
   <body>
   <h2 class="signInText" align="center" >Sign In</h2>
  
+<link href="./custom css/signIn_register.css" rel="stylesheet">
   
+  <% if (messages.error) {  %>
+  <%= messages.error %>
+  <% } %>
+
   <form class="login-form" action="/users/login" method="POST">
   <fieldset style="border: 1px solid #000000">
   <div class="container">

@@ -1,13 +1,14 @@
 const express = require('express');
+
+const app = express();
 const mongoose = require('mongoose');
 const passport = require('passport');
-const flash = require('connect-flash');
+const flash = require('express-flash');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
 
 
-const app = express();
 
 require('./config/passport')(passport);
 

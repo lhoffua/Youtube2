@@ -1,12 +1,9 @@
-<html>
+
 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta charset="utf-8">
-<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="./custom css/searchscreen.css" rel="stylesheet">
-<link href="./custom css/navbar.css" rel="stylesheet">
-<link href="./custon css/scroll.css" rel="stylesheet">
+
 
 
 <body>
@@ -33,7 +30,9 @@
 		  </nav>
 
 </header>
-	<div class="temp"><h3><center>Profile of Author</center><h3></div>
+	<div class="temp"><h3><center>Profile of <%= user.name %></center><h3></div>
+		<a href="/users/logout" class="btn btn-secondary">Logout</a>
+		<a href="/upload" class="btn btn-secondary">Upload</a>
 		<div class="container">
 	 		<div class="row">
 	    		<div class="col-sm-4">
@@ -49,7 +48,7 @@
 	    		</div>
 					<div class="col-sm bg-dark">
 						<div class="bg-dark text-info">
-						Hello, I'm Author, and I like to make videos.
+						Hello, I'm <%= user.name %>, and I like to make videos.
 						</div>
 						<div class="container testimonial-group">
 							<div class="row text-center text-light">
@@ -98,4 +97,3 @@
 		</div>
 </body>
 	
-</html>

@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 const fs = require('fs');
+require('dotenv').config();
 const AWS = require('aws-sdk');
 var multer = require("multer");
-const s3_access = require('../config/keys').AWS_ACCESS_KEY;
-const s3_secret = require('../config/keys').AWS_SECRET_ACCESS_KEY;
+const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
-router.get('/', (req, res) => res.render('uploadtest'));
+router.get('/',  ensureAuthenticated, (req, res) => res.render('uploadtest'));
 
 
 
@@ -21,8 +21,8 @@ router.post('/', upload.single("videoFile"), (req, res) => {
     const file = req.file;
 
     const s3 = new AWS.S3({
-        accessKeyId: s3_access,
-        secretAccessKey: s3_secret
+        accessKeyId: process.env.AWS_ACCESS_KEY,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
     });
     
 
@@ -37,6 +37,7 @@ router.post('/', upload.single("videoFile"), (req, res) => {
       s3.upload(params, function(s3Err, data) {
         if (s3Err) throw s3Err
         console.log(`File uploaded successfully at ${data.Location}`)
+        res.redirect('/profile');
     });
     
 

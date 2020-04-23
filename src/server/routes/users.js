@@ -32,7 +32,7 @@ router.post('/register', (req, res) => {
               newUser
                 .save()
                 .then(user => {
-                  console.log(
+                  req.flash(
                     
                     'You are now registered and can log in'
                   );
@@ -50,8 +50,8 @@ router.post('/login', (req, res, next) => {
     console.log("login info sent to server");
     passport.authenticate('local' ,
     {
-      successRedirect: '/test', 
-      failureRedirect: console.log("fail"),
+      successRedirect: '/', 
+      failureRedirect: '/users/signIn',
       failureFlash: true
     })(req, res, next);
   });
