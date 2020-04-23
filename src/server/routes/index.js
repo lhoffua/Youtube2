@@ -4,7 +4,9 @@ const path = require("path")
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
 router.use(express.static("../"));
-router.get('/', (req, res) => res.render('index'));
+router.get('/', (req, res) => res.render('index', {
+  user: req.user
+}));
 router.get('/search', (req, res) => res.render('searchpage'));
 router.get('/profile', ensureAuthenticated, (req, res) => res.render('profile' ,{
   user: req.user
