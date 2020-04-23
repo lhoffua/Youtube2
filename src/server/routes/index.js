@@ -7,12 +7,18 @@ router.use(express.static("../"));
 router.get('/', (req, res) => res.render('index', {
   user: req.user
 }));
-router.get('/search', (req, res) => res.render('searchpage'));
+router.get('/search', (req, res) => res.render('searchpage',{
+  user: req.user
+})
+);
 router.get('/profile', ensureAuthenticated, (req, res) => res.render('profile' ,{
   user: req.user
 })
 );
-router.get('/video', (req, res) => res.render('video'));
+router.get('/video', (req, res) => res.render('video',{
+  user: req.user
+})
+);
 
 
 router.get('/test', ensureAuthenticated, (req, res) =>
