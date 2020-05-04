@@ -1,20 +1,23 @@
 const mongoose = require('mongoose');
+const User = require('../models/Users');
 
-const UserSchema = new mongoose.Schema({
+const VideoSchema = new mongoose.Schema({
 
-    name: {
+    title: {
         type: String,
         required: true
     },
 
-    email:{
+    user:{
+        type: User,
+        required: true
+    },
+    
+    location:{
         type: String,
         required: true
     },
-    password:{
-        type: String,
-        required: true
-    },
+    
     description:{
         type: String
     },
@@ -25,6 +28,6 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
-const User = mongoose.model('User', UserSchema);
+const video = mongoose.model('video', VideoSchema);
 
-module.exports = User;
+module.exports = video;

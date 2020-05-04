@@ -7,7 +7,11 @@
 
 
 <body>
-
+	<script>
+		function updateDesc(){
+			prompt("Enter desired description: ");
+		}
+	</script>
 	<header style="padding-top: 30px;">
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 			<a class="navbar-brand" href="/">Youtoob2</a>
@@ -19,11 +23,11 @@
 				</form>
 			</div>
 			
-			<% if(user == null){ 
+			<% if(locals.user == null){ 
 				information = 'Sign in'
 				} 
 				 else{ 
-					information = user.name
+					information = locals.user.name
 					 } %>
 			
 			<ul class="navbar-nav signin">
@@ -42,23 +46,24 @@
 	 		<div class="row">
 	    		<div class="col-sm-4">
 						<div class="text-center bg-info p-3">
-							<img src="aviplaceholder.jpg" alt="Girl in a jacket" height="200px" width="200px">
+							<img src="../aviplaceholder.jpg" alt="Girl in a jacket" height="200px" width="200px">
 						</div>
 							
 						<div class="container bg-info text-white py-4" "width=200">
-								<p>Author</p>
-								<p>Birthday: 6/8</p>
-								<p>Favorite Flavor: blue</p>
+								<p><%= user.description%></p>
+								<form action="/editprofile" method="POST">
+									<input type="text" placeholder="Edit your description" name="description" id="description">
+									<button type="submit">Edit</button>
+								</form>
 						</div>
 	    		</div>
 					<div class="col-sm bg-dark">
 						<div class="bg-dark text-info">
-						Hello, I'm <%= user.name %>, and I like to make videos.
 						</div>
 						<div class="container testimonial-group">
 							<div class="row text-center text-light">
 								<div class="p-1">
-									<img src="download	.jpg" alt="Girl in a jacket" height="100px" >
+									<img src="../download	.jpg" alt="Girl in a jacket" height="100px" >
 									<p>Video Title</p>
 								</div>
 

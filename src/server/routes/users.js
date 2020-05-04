@@ -14,26 +14,52 @@ router.get('/signIn', forwardAuthenticated, (req, res) => res.render('signIn'));
 
 router.post('/register', (req, res) => {
     const { name, email, password, password2 } = req.body;
+    let errors = [];
 
-    User.findOne({ email: email }).then(user => {
+    if(!name || !email || !password || !password2){
+      errors.push({ msg: 'Fill out all fields'});
+    }
+
+    if(password !== password2){
+      errors.push({msg: 'Passwords do not match'});
+    }
+
+    if (errors.length > 0) {
+      res.render('register', {
+        errors,
+        name,
+        email,
+        password,
+        password2
+      });
+    }
+    else{
+    User.findOne({$or:[ {email: email}, {name : name }]}).then(user => {
         if (user) {
-          console.log({ msg: 'Email already exists' });
+          errors.push({ msg: 'account already exists' });
+          res.render('register', {
+            errors,
+            name,
+            email,
+            password,
+            password2
+          });
         } else {
           const newUser = new User({
             name,
             email,
-            password
+            password,
+            description: ""
         });
         
         bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(newUser.password, salt, (err, hash) => {
               if (err) throw err;
               newUser.password = hash;
-              newUser
-                .save()
+              newUser.save()
                 .then(user => {
                   req.flash(
-                    
+                    'succes_msg',
                     'You are now registered and can log in'
                   );
                   res.redirect('/users/signIn');
@@ -43,6 +69,7 @@ router.post('/register', (req, res) => {
           });
         } 
     });
+    }
 });
     
 router.post('/login', (req, res, next) => {
@@ -58,7 +85,7 @@ router.post('/login', (req, res, next) => {
 
   router.get('/logout', (req, res) => {
     req.logout();
-    console.log('You are logged out');
+    req.flash('success_msg', 'You are logged out');
     res.redirect('/users/signIn');
   });
 

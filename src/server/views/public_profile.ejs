@@ -1,0 +1,104 @@
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta charset="utf-8">
+
+
+
+<body>
+	
+	<header style="padding-top: 30px;">
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="/">Youtoob2</a>
+		
+			<div class="search">
+				<form class="form-inline center">
+					<input class="search-input" type="text" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href='search';" type="button">Search</button>
+				</form>
+			</div>
+			
+		
+			<% if(locals.user == null){ 
+				information = 'Sign in'
+				} 
+				 else{ 
+					information = locals.user.name
+					 } %>
+			
+			<ul class="navbar-nav signin">
+				<li class="nav-item dontshrink">
+					<a class="nav-link dontshrink" href='/users/signIn'> <%- information %> </a>
+				</li>
+			</ul>
+			
+		  </nav>
+
+</header>
+	<div class="temp"><h3><center>Profile of <%= users.name %></center><h3></div>
+		<div class="container">
+	 		<div class="row">
+	    		<div class="col-sm-4">
+						<div class="text-center bg-info p-3">
+							<img src="../aviplaceholder.jpg" alt="Girl in a jacket" height="200px" width="200px">
+						</div>
+							
+						<div class="container bg-info text-white py-4" >
+								<p><%= users.description%></p>
+								
+						</div>
+				</div>
+				<div class="col-sm bg-dark">
+					<div class="bg-dark text-info">
+						
+
+					
+						
+					</div>
+					<div class="container testimonial-group">
+						<div class="row text-center text-light">
+							<div class="p-1">
+								<img src="../download.jpg" alt="Girl in a jacket" height="100px" >
+								<p>Video Title</p>
+							</div>
+
+							<div class="p-1">
+								<img src="../download	.jpg" alt="Girl in a jacket" height="100px">
+								<p>Video Title</p>
+							</div>
+							<div class="p-1">
+								<img src="../download	.jpg" alt="Girl in a jacket" height="100px">
+								<p>Video Title</p>
+							</div>
+							<div class="p-1">
+								<img src="../download	.jpg" alt="Girl in a jacket" height="100px">
+								<p>Video Title</p>
+							</div>
+							<div class="p-1">
+								<img src="../download	.jpg" alt="Girl in a jacket" height="100px">
+								<p>Video Title</p>
+							</div>
+							<div class="p-1">
+								<img src="../download	.jpg" alt="Girl in a jacket" height="100px">
+								<p>Video Title</p>
+							</div>
+							<div class="p-1">
+								<img src="../download	.jpg" alt="Girl in a jacket" height="100px">
+								<p>Video Title</p>
+							</div>
+							<div class="p-1">
+								<img src="../download	.jpg" alt="Girl in a jacket" height="100px">
+								<p>Video Title</p>
+							</div>
+							<div class="p-1">
+								<img src="../download	.jpg" alt="Girl in a jacket" height="100px">
+								<p>Video Title</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+		</div>
+				
+	
