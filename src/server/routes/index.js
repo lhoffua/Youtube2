@@ -37,7 +37,7 @@ router.post('/editprofile', ensureAuthenticated, (req, res) => {
     User.findOne({name:req.user.name}).then(user => {
       //this will give you the document what you want to update.. then 
       console.log("body parsing", req.body);
-      console.log(description.description);
+     
       user.updateOne({$set: {description}},
         (err) => {
           if (err) {
@@ -49,6 +49,27 @@ router.post('/editprofile', ensureAuthenticated, (req, res) => {
      });
      
 });
+
+router.post('/search', async (req, res) => {
+  const {search} = req.body;
+
+  console.log("body parsing", req.body);
+  
+  User.find({name: new RegExp(search, "i")}, function(err, users) {
+    var userMap = {};
+
+    //users.forEach(function(user) {
+
+      //userMap[user._id] = user;
+   // });
+    res.render('searchpage', {results:users, user:req.user});
+    //res.send(userMap);  
+  });
+ 
+ 
+ 
+  });
+    
 
 router.get('/test', ensureAuthenticated, (req, res) =>
   res.render('test' , { 

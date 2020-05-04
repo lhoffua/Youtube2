@@ -18,7 +18,12 @@
 				</form>
 			</div>
 			
-		
+			<% results.forEach(function(user) {
+				
+				console.log(user.name) 
+			}) %>
+
+
 			<% if(user == null){ 
 				information = 'Sign in'
 				} 
