@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-
+const fs = require('fs')
+const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
-const fs = require('fs');
-require('dotenv').config();
 const AWS = require('aws-sdk');
 var multer = require("multer");
 const videos = require('../models/videos');
 const User = require('../models/Users');
+
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
 
@@ -23,9 +23,15 @@ var upload = multer({storage: storage});
 
 
 router.post('/', upload.single("videoFile"), (req, res) => {
-    const file = req.file;
+  const file = req.file;
+  var temp = JSON.parse(JSON.stringify(req.body));
+  const desc = temp.description;
+  console.log(desc);
+    
+    console.log(file);
     const user = req.user;
-  
+    
+    console.log(desc);
     const s3 = new AWS.S3({
         accessKeyId: process.env.AWS_ACCESS_KEY,
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
@@ -48,7 +54,7 @@ router.post('/', upload.single("videoFile"), (req, res) => {
             title: file.originalname,
             user: user.name,
             location: data.Location ,
-            description: ""
+            description: desc
         });
         newVid.save();
         res.redirect('/video/'+newVid._id);

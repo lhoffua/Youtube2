@@ -5,9 +5,38 @@
 <meta charset="utf-8">
 
 <body>
+    <header style="padding-top: 50px;"></header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="/#">Youtoob2</a>
+    
+        <div class="search">
+            <form class="form-inline center" method="post" action="../search">
+                <input class="search-input" type="text" name="search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    
+        <% if(locals.user == null){ 
+            information = 'Sign in'
+            } 
+             else{ 
+                information = locals.user.name
+                 } %>
+        
+        
+        <ul class="navbar-nav signin">
+            <li class="nav-item dontshrink">
+                <a class="nav-link dontshrink" href='/users/signIn'> <%- information %> </a>
+            </li>
+        </ul>
+        
+        
+      </nav>
+    </header>
     <h1 class="mt-4">Upload Here!</h1>
     <form method="post" action="/upload" enctype="multipart/form-data">
         <input type="file" name="videoFile"><br>
+        <textarea name="description" rows="10" cols="60">Your title is the file name. Enter your video description (cannot be blank).</textarea>
         <input type="submit" value="Submit">
     </form>
 </body>

@@ -7,7 +7,7 @@ const flash = require('express-flash');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
-
+require('dotenv').config();
 
 
 require('./config/passport')(passport);
