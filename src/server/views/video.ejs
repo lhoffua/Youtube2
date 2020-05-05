@@ -1,3 +1,50 @@
+<html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta charset="utf-8">
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../custom css/navbar.css" rel="stylesheet">
+<link href="../custom css/videoscreen.css" rel="stylesheet">
+
+
+<head>
+  <link href="https://vjs.zencdn.net/7.7.5/video-js.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+	<header>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="/#">Youtoob2</a>
+
+	<div class="search">
+		<form class="form-inline center" method="post" action="../search">
+			<input class="search-input" type="text" name="search" aria-label="Search">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		</form>
+	</div>
+
+	<% if(locals.user == null){ 
+		information = 'Sign in'
+		} 
+		 else{ 
+			information = locals.user.name
+			 } %>
+	
+	
+	<ul class="navbar-nav signin">
+		<li class="nav-item dontshrink">
+			<a class="nav-link dontshrink" href='/users/signIn'> <%- information %> </a>
+		</li>
+	</ul>
+	
+	
+  </nav>
+
+
+</header>
 <div class="container">
 	<div class="row">
 	   <div class="col-sm-8">
@@ -19,7 +66,7 @@
 				   <source src='<%=link%>' type="video/mp4" />
 				   <a href='video2.html'></a>
 			   </video>
-			   <h3>ForBiggerBlazes</h3><b>user1</b><br>
+			   <h3>ForBiggerBlazes</h3><b><%=video.user%></b><br>
 			   
 			   <p>
 				   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">

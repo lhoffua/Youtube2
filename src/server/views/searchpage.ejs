@@ -12,9 +12,9 @@
 			<a class="navbar-brand" href="/">Youtoob2</a>
 		
 			<div class="search">
-				<form class="form-inline center">
-					<input class="search-input" type="text" placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" onclick="window.location.href='search';" type="button">Search</button>
+				<form class="form-inline center" method="post" action="../search">
+					<input class="search-input" type="text" name="search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 			</div>
 			
@@ -38,22 +38,38 @@
 		  </nav>
 
 </header>
+<% results.forEach(function(user) { %>
+			
+	<script> 
+	var newDiv = document.createElement("a"); 
+	var names = `<%= user.name %>`;
+	var newContent = document.createTextNode("hi" + names);
+	newDiv.appendChild(newContent);
+	var test = "/profile/" + names;
+	newDiv.href = test
+	var currentDiv = document.getElementById("div1"); 
+	  document.body.insertBefore(newDiv, currentDiv); 
+	</script>
+	<% console.log(user.name) %>
+<% }) %>
+<% Vresults.forEach(function(video) { %>
+	<script> 
+		var newVDiv = document.createElement("a"); 
+		var Vnames = `<%= video.title %>`;
+		var id = `<%= video._id %>`;
+		var newVContent = document.createTextNode("hi" + Vnames);
+		newVDiv.appendChild(newVContent);
+		var test = "/video/" + id;
+		newVDiv.href = test
+		var currentDiv = document.getElementById("div1"); 
+		  document.body.insertBefore(newVDiv, currentDiv); 
+		</script>
+
+	<% console.log(video.title) %>
+<% }) %>
 	<div class="temp"><h3><center>result for <%- search %></center></h3></div>
 		<div class="container">	
-			<% results.forEach(function(user) { %>
-			
-			<script> 
-			var newDiv = document.createElement("a"); 
-			var names = `<%= user.name %>`;
-			var newContent = document.createTextNode("hi" + names);
-			newDiv.appendChild(newContent);
-			var test = "/profile/" + names;
-			newDiv.href = test
-			var currentDiv = document.getElementById("div1"); 
-  			document.body.inser(newDiv, currentDiv); 
-			</script>
-			<% console.log(user.name) %>
-		<% }) %>
+			<%- include('partials/messages') %>
 	 		<div class="row">
 	    		<div class="col-sm-8">
 		      		<div id="div1">

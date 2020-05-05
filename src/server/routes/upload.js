@@ -46,12 +46,12 @@ router.post('/', upload.single("videoFile"), (req, res) => {
         console.log(`File uploaded successfully at ${data.Location}`)
         const newVid = new videos({
             title: file.originalname,
-            userid: user._id,
+            user: user.name,
             location: data.Location ,
             description: ""
         });
         newVid.save();
-        res.redirect('/editprofile');
+        res.redirect('/video/'+newVid._id);
     });
     
 

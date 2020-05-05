@@ -60,19 +60,28 @@ router.post('/editprofile', ensureAuthenticated, (req, res) => {
 
 router.post('/search', async (req, res) => {
   const {search} = req.body;
-
+  let errors = [];
   console.log("body parsing", req.body);
   
+  try{
   User.find({name: new RegExp(search, "i")}, function(err, users) {
     var userMap = {};
-
+    video.find({title: new RegExp(search, "i")}, function(err, videos) {
     //users.forEach(function(user) {
 
       //userMap[user._id] = user;
    // });
-    res.render('searchpage', {results:users, user:req.user, search:search});
-    //res.send(userMap);  
+   res.render('searchpage', {results:users, Vresults:videos, user:req.user, search:search});
   });
+  
+});
+  }
+  catch(err){
+    errors.push({msg : "Search not found"})
+    res.render('/',{errors});
+  }
+    //res.send(userMap);  
+ 
  
  
  

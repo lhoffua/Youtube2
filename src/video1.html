@@ -27,14 +27,22 @@
 	</div>
 	
 
+	<% if(user == null){ 
+		information = 'Sign in'
+		} 
+		 else{ 
+			information = user.name
+			 } %>
+	
 	<ul class="navbar-nav signin">
 		<li class="nav-item dontshrink">
-			<a class="nav-link dontshrink" href='/users/signin'> Sign In </a>
+			<a class="nav-link dontshrink" href='/users/signIn'> <%- information %> </a>
 		</li>
 	</ul>
 	
 	
   </nav>
+
 
 </header>
 
