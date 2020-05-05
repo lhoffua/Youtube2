@@ -41,15 +41,17 @@
 <% results.forEach(function(user) { %>
 			
 	<script> 
-	var newDiv = document.createElement("a"); 
-	var names = `<%= user.name %>`;
-	var newContent = document.createTextNode("hi" + names);
-	newDiv.appendChild(newContent);
-	var test = "/profile/" + names;
-	newDiv.href = test
-	var currentDiv = document.getElementById("div1"); 
+		var newDiv = document.createElement("a"); 
+		var newContent = document.createElement("div");
+		var names = '<%= user.name %>';
+		var test = "/profile/" + names;
+		var str ='<div class="row"><div class="col-sm-4"><img src="aviplaceholder.jpg" height="200px" width="200px"></div><div class="col-sm-7"><h1>user: '+names +'</h1></div></div>';
+		newContent.innerHTML = str;
+		newDiv.appendChild(newContent);
+		newDiv.href= test;
+		var currentDiv = document.getElementById("div1"); 
 	  document.body.insertBefore(newDiv, currentDiv); 
-	</script>
+		</script>
 	<% console.log(user.name) %>
 <% }) %>
 <% Vresults.forEach(function(video) { %>
@@ -67,50 +69,20 @@
 
 	<% console.log(video.title) %>
 <% }) %>
-	<div class="temp"><h3><center>result for <%- search %></center></h3></div>
+	
+<div class="temp"><h3><center>result for <%- search %></center></h3></div>
 		<div class="container">	
-			<%- include('partials/messages') %>
+		
 	 		<div class="row">
-	    		<div class="col-sm-8">
+	    		
 		      		<div id="div1">
-		      			
-		  			</div>
-	    		</div>
-	   			<div class="col-sm-8">
-	    			<div>
-	     				<h3>Title</h3><h4><a href=profile.html>Author</a></h4><h5>blah blah blah blah blah blah blah blah blah </h5>
-	  				</div>
-	    		</div>
-	  		</div>
-	  		<div class="row">
-	    		<div class="col-sm-4">
-		      		<div>
-		      			<img src="download	.jpg" alt="Girl in a jacket" height="200px" width="100%">
-		  			</div>
-	    		</div>
-	   			<div class="col-sm-8">
-	    			<div>
-	     				<h3>Title</h3><h4>Author</h4><h5>blah blah blah blah blah blah blah blah blah </h5>
-	  				</div>
-	    		</div>
-	  		</div>
-	  		<div class="row">
-	    		<div class="col-sm-4">
-		      		<div>
-		      			<img src="download	.jpg" alt="Girl in a jacket" height="200px" width="100%">
-		  			</div>
-	    		</div>
-	   			<div class="col-sm-8">
-	    			<div>
-	     				<h3>Title</h3><h4>Author</h4><h5>blah blah blah blah blah blah blah blah blah </h5>
-	  				</div>
-	    		</div>
-	  		</div>
-
-
-
-
-	</div>
+					  </div>
+					  
+			</div>
+		</div>
+		
+		  			
+	
 </body>
 	
 </html>
