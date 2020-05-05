@@ -15,20 +15,28 @@ router.get('/search', (req, res) => res.render('searchpage',{
   user: req.user
 })
 );
-router.get('/editprofile', ensureAuthenticated, (req, res) => res.render('profile' ,{
-  user: req.user
-})
-);
+router.get('/editprofile', ensureAuthenticated, (req, res) => {
+  const name = req.user.name;
+  video.find({user:name}, function(err, videos) {
+    console.log(videos);
+    console.log(req.user);
+    res.render('profile' ,{
+      user: req.user,
+      Vresults:videos
+    }) 
+  });
+});
 
 
 router.get('/profile/:name', (req, res) =>{
   const name = req.params.name;
   User.findOne({name}, (err, result) =>{
-   
+    video.find({user:name}, function(err, videos) {
     console.log(result);
     console.log(req.user);
-   res.render('public_profile',  {users:result, user: req.user});
+   res.render('public_profile',  {users:result, user: req.user, Vresults:videos});
   });
+});
 });
 
 
@@ -87,15 +95,4 @@ router.post('/search', async (req, res) => {
  
   });
     
-
-router.get('/test', ensureAuthenticated, (req, res) =>
-  res.render('test' , { 
-    root : "..", 
-    user: req.user
-  })
-);
-
-
-
-
 module.exports = router;

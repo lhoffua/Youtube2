@@ -39,7 +39,26 @@
 		  </nav>
 
 </header>
+<% Vresults.forEach(function(video) { %>
+	
+	<script> 
+		var newVDiv = document.createElement("a"); 
+		var newVContent = document.createElement("div");
+		var Vnames = `<%= video.title %>`;
+		var id = `<%= video._id %>`;
+		var video = '<%=video.location%>';
+		var str = '<div class="row"><div class="p-1"><video preload="metadata" width="100px"><source src=' + '"' + video + '"' + 'type="video/mp4"> </video></div><div class="col-sm"><h1>video: '+Vnames + '</h1></div></div>';
+			console.log(str);
+			newVContent.innerHTML = str;
+		newVDiv.appendChild(newVContent);
+		var test = "/video/" + id;
+		newVDiv.href = test
+		var currentDiv = document.getElementById("div1"); 
+		  document.body.insertBefore(newVDiv, currentDiv); 
+		</script>
 
+	<% console.log(video.title) %>
+<% }) %>
 	<div class="temp"><h3><center>Profile of <%= user.name %></center><h3></div>
 		
 		<div class="container">
@@ -64,7 +83,10 @@
 						<div class="text-info">
 						</div>
 						<div class="container testimonial-group">
-							
+							<div class="row text-center text-light">
+								<div ><h1>Uploaded Videos!</h1></div>
+								<div id="div1"></div>
+							</div>
 						</div>
 					</div>
 							
