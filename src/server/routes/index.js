@@ -4,6 +4,7 @@ const path = require("path");
 const bodyParser = require('body-parser');
 const ObjectID = require('mongodb').ObjectID;
 const User = require('../models/Users');
+const video = require('../models/videos');
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
 router.use(express.static("../"));
@@ -18,19 +19,26 @@ router.get('/editprofile', ensureAuthenticated, (req, res) => res.render('profil
   user: req.user
 })
 );
-router.get('/profile/:name', (req, res, next) =>{
+
+
+router.get('/profile/:name', (req, res) =>{
   const name = req.params.name;
   User.findOne({name}, (err, result) =>{
-    
+   
     console.log(result);
     console.log(req.user);
    res.render('public_profile',  {users:result, user: req.user});
   });
 });
-router.get('/video', (req, res) => res.render('video',{
-  user: req.user
-})
-);
+
+
+router.get('/video/:_id', (req, res) => {
+  const _id = req.params._id;
+  video.findById({_id}, (err, result) =>{
+      res.render('video', {video:result});
+  })
+});
+
 
 router.post('/editprofile', ensureAuthenticated, (req, res) => {
     const {description} = req.body;
@@ -62,7 +70,7 @@ router.post('/search', async (req, res) => {
 
       //userMap[user._id] = user;
    // });
-    res.render('searchpage', {results:users, user:req.user});
+    res.render('searchpage', {results:users, user:req.user, search:search});
     //res.send(userMap);  
   });
  

@@ -15,7 +15,7 @@ router.get('/signIn', forwardAuthenticated, (req, res) => res.render('signIn'));
 router.post('/register', (req, res) => {
     const { name, email, password, password2 } = req.body;
     let errors = [];
-
+  
     if(!name || !email || !password || !password2){
       errors.push({ msg: 'Fill out all fields'});
     }

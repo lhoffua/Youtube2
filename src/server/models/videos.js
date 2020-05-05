@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const User = require('../models/Users');
+
 
 const VideoSchema = new mongoose.Schema({
 
@@ -8,8 +8,8 @@ const VideoSchema = new mongoose.Schema({
         required: true
     },
 
-    user:{
-        type: User,
+    userid:{
+        type: String,
         required: true
     },
     
