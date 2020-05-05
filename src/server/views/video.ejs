@@ -45,11 +45,13 @@
 
 
 </header>
+
 <div class="container">
+
 	<div class="row">
-	   <div class="col-sm-8">
-			 <div>
-				  <video
+  
+	  <div class="col-md-8">
+		<video
 				   id="my-video"
 				   class="video-js"
 				   controls
@@ -60,82 +62,87 @@
 				   data-setup="{}"
 			   >	
 					<% if(video != null){
-
 						link = video.location
 					}%>
-				   <source src='<%=link%>' type="video/mp4" />
+				   <source src="<%=link%>"> type="video/mp4" />
 				   <a href='video2.html'></a>
 			   </video>
-			   <h3><%=video.title%></h3><b><%=video.user%></b><br>
-			   
-			   <p>
-				   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-					 Ad
-				   </button>
-				   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-					   GOT
-					 </button>
-				 </p>
-				 
-			   
-
-			   <div class="form-group">
-				   <label for="comment">Comment:</label>
-				   <textarea class="form-control" rows="5" id="comment"></textarea>
-				   <button type="submit">submit</button>
-				 </div>
-				<div class="row">
-					
-					   <div class="col-sm-2">
-						   <div>
-							 user name 
-						 </div>
-					 </div>
-					 <div class="col-sm-10">
-						<p>comment comment comment comment comment comment comment comment comment comment comment comment </p>
-					 </div>
-				 </div>
-				 <div class="row">
-					   <div class="col-sm-2">
-						   <div>
-							 user name 
-						 </div>
-					 </div>
-					 <div class="col-sm-10">
-						<p>comment comment comment comment comment comment comment comment comment comment comment comment </p>
-					 </div>
-				 </div>
-				 <div class="row">
-					   <div class="col-sm-2">
-						   <div>
-							 user name 
-						 </div>
-					 </div>
-					 <div class="col-sm-10">
-						<p>comment comment comment comment comment comment comment comment comment comment comment comment </p>
-					 </div>
-				 </div>
-				 <div class="row">
-					   <div class="col-sm-2">
-						   <div>
-							 user name 
-						 </div>
-					 </div>
-					 <div class="col-sm-10">
-						<p>comment comment comment comment comment comment comment comment comment comment comment comment </p>
-					 </div>
-				 </div>
-			 </div>
-			 
-	   </div>
-	   <div class="col-sm-4">
-		   <div class="row">
-				   <h3>recomend video</h3>
-				   <div class="col-sm-6">
-					   <a href='video2.html'> ForBiggerEscapes<a>
-					 </div>
-					   <div class="col-sm-6">
-						   <div>
+	  </div>
+	  <div class="col-md-4">
+		<h3><%=video.title%></h3>
+		<p><%=video.description%></p>
+		
+			<h3 class="my-3">Uploaded by: <%=video.user%></h3>
+	  </div>
+  
+	</div>
+	<!-- /.row -->
+  
+	<!-- Related Projects Row -->
+	<h3 class="my-4">You may also enjoy...</h3>
+  
+	<div class="row">
+  
+	  <div class="col-md-3 col-sm-6 mb-4">
+		<a href="#">
+			<div>
+							 
+				<video
+				id="my-video"
+				class="video-js"
+				preload="auto"
+				width="140%"
+				height="140px"
+				poster=""
+				data-setup="{}"
+			>
+				<source src="https://418videos.s3.amazonaws.com/ForBiggerEscapes.mp4" type="video/mp4" />
+			</video>
+			</div>
+			</a>
+	  </div>
+  
+	  <div class="col-md-3 col-sm-6 mb-4">
+		<a href="#">
+			<div>
+							 
+				<video
+				id="my-video"
+				class="video-js"
+				preload="auto"
+				width="140%"
+				height="140px"
+				poster=""
+				data-setup="{}"
+			>
+				<source src="https://418videos.s3.amazonaws.com/Fall.mp4" type="video/mp4" />
+			</video>
+			</div>
+			</a>
+	  </div>
+  
+	  <div class="col-md-3 col-sm-6 mb-4">
+		<a href="#">
+			<div>
+							 
+				<video
+				id="my-video"
+				class="video-js"
+				preload="auto"
+				width="140%"
+				height="140px"
+				poster=""
+				data-setup="{}"
+			>
+				<source src="https://418videos.s3.amazonaws.com/ForBiggerEscapes.mp4" type="video/mp4" />
+			</video>
+			</div>
+			</a>
+	  </div>
+  
+	  <div class="col-md-3 col-sm-6 mb-4">
+		<a href="#">
+			  <div>
 							 
 							 <video
 							 id="my-video"
@@ -146,90 +153,13 @@
 							 poster=""
 							 data-setup="{}"
 						 >
-							 <source src="https://418videos.s3.amazonaws.com/ForBiggerEscapes.mp4" type="video/mp4" />
+							 <source src="https://418videos.s3.amazonaws.com/cloudsAGAIN.mp4" type="video/mp4" />
 						 </video>
 						 </div>
-					 </div><br>
-					 
-				 </div>
-				 <div class="row">
-					   <div class="col-sm-6">
-						   <div>
-						   <div class="col-sm-6">
-							   <a href='video2.html'>Title<a>
-							 </div>
-							 <img src="download	.jpg" alt="Girl in a jacket" height="140px" width="140%">
-						 </div>
-					 </div>
-				 </div><br>
-
-				 <div class="row">
-					   <div class="col-sm-6">
-						   <div>
-						   <div class="col-sm-6">
-							   <a href='video2.html'>Title<a>
-							 </div>
-							 <img src="download	.jpg" alt="Girl in a jacket" height="140px" width="140%">
-						 </div>
-					 </div>
-				 </div><br>
-				 <div class="row">
-					   <div class="col-sm-6">
-						   <div>
-						   <div class="col-sm-6">
-							   <a href='video2.html'>Title<a>
-							 </div>
-							 <img src="download	.jpg" alt="Girl in a jacket" height="140px" width="140%">
-						 </div>
-					 </div>
-				 </div><br>
-				 <div class="row">
-					   <div class="col-sm-6">
-						   <div>
-						   <div class="col-sm-6">
-							   <a href='video2.html'> Title<a>
-							 </div>
-							 <img src="download	.jpg" alt="Girl in a jacket" height="140px" width="140%">
-						 </div>
-					 </div>
-				 </div><br>
-
-				 <div class="row">
-					   <div class="col-sm-6">
-						   <div>
-						   <div class="col-sm-6">
-							   <a href='video2.html'> Title<a>
-							 </div>
-							 <img src="download	.jpg" alt="Girl in a jacket" height="140px" width="140%">
-						 </div>
-					 </div>
-				 </div><br>
-				 <div class="row">
-					   <div class="col-sm-6">
-						   <div>
-						   <div class="col-sm-6">
-							   <a href='video2.html'> Title<a>
-							 </div>
-							 <img src="download	.jpg" alt="Girl in a jacket" height="140px" width="140%">
-						 </div>
-					 </div>
-				 </div><br>
-				 <div class="row">
-					   <div class="col-sm-6">
-						   <div>
-						   <div class="col-sm-6">
-							   <a href='video2.html'> Title<a>
-							 </div>
-							 <img src="download	.jpg" alt="Girl in a jacket" height="140px" width="140%">
-						 </div>
-					 </div>
-				 </div>
-				 
-			 </div>>
-		 </div>
-	   </div>
- </div>
-</div>
-</body>
-
-</html>
+			</a>
+	  </div>
+  
+	</div>
+	<!-- /.row -->
+  
+  </div>

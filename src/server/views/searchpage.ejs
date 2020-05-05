@@ -55,11 +55,16 @@
 	<% console.log(user.name) %>
 <% }) %>
 <% Vresults.forEach(function(video) { %>
+	
 	<script> 
 		var newVDiv = document.createElement("a"); 
+		var newVContent = document.createElement("div");
 		var Vnames = `<%= video.title %>`;
 		var id = `<%= video._id %>`;
-		var newVContent = document.createTextNode("hi" + Vnames);
+		var video = '<%=video.location%>';
+        var str = '<div class="row"><div class="col-sm-4"><video preload="metadata" width="400px"><source src=' + '"' + video + '"' + 'type="video/mp4"> </video></div><div class="col-sm-7"><h1>video: '+Vnames + '</h1></div></div>';
+			console.log(str);
+			newVContent.innerHTML = str;
 		newVDiv.appendChild(newVContent);
 		var test = "/video/" + id;
 		newVDiv.href = test
